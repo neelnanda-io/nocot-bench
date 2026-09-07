@@ -1,0 +1,43 @@
+MIT License
+
+Copyright (c) 2026 Neel Nanda
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-------------------------------------------------------------------------------
+SCOPE
+
+The MIT licence above covers EVERYTHING in this repository that is ours: the
+code in `nocot/`, the documentation, `models.csv`, and the bank items in
+`data/` — the generated NCRI banks, the generated knowledge banks, the harder
+rungs in `data/extras/` and the diagnostic instruments in `data/diagnostics/`.
+
+Two things in `data/` are not ours to relicense, and the MIT grant above does
+not purport to cover their upstream rights:
+
+  * `data/ncri/cemc.jsonl` and `data/ncri/cemc_hard.jsonl` reproduce University
+    of Waterloo CEMC contest items (published freely by the CEMC; each item
+    carries its `source_url`).
+  * `data/ncri/o_gsm1k.jsonl` reproduces the public GSM1k test split, with
+    GSM8K-train exemplars (MIT).
+  * `data/ncri/gpqa.jsonl` is NOT distributed here at all. It is rebuilt from
+    the gated upstream by `python -m nocot.fetch_gpqa`, under whatever terms you
+    accepted there (CC BY 4.0 at the time of writing).
+
+`data/PROVENANCE.md` names each bank's source. Everything else is MIT.

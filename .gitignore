@@ -1,0 +1,26 @@
+# runs and their cache
+runs/
+graded/
+.cache/
+*.graded.jsonl
+placement.json
+
+# secrets — never commit these
+.env
+.env.*
+*.key
+
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# os
+.DS_Store
+
+# gpqa ships as a manifest, not as text (author-gated upstream).
+# `python -m nocot.fetch_gpqa` rebuilds and byte-verifies it.
+data/ncri/gpqa.jsonl
