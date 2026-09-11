@@ -3,8 +3,8 @@
  "headline": "NCKI",
  "secondary": "the A58 accuracy aggregate",
  "ruling": "ANALYSIS_SPEC Amendment 240 thread 42 (Neel 2026-09-11, verbatim \"As in, officially more from knowledge acc to index (NCKI)? Yes do it\"); the spine itself is Amendment 238 item 3 / Amendment 239; the partial-coverage grants are Amendment 240 thread 27 / Amendment 241.",
- "sealed_on": "2026-09-11T16:02:39+0100",
- "spine_digest": "8e63771480d0d53def5a4d4f9ad291ded1f14e1b5b5248be2dd1c73bb5583d84",
+ "sealed_on": "2026-09-11T16:14:06+0100",
+ "spine_digest": "91a1d083e02b7bd59277d4d6b36cf8f239417574e19aa15c9ab971af2e0c9c18",
  "corpus_hash": "80f9c81f7e6a4463",
  "gauge": {
   "formula": "display = 100 + (10/ln2)*theta",
@@ -21,45 +21,45 @@
   "intervals": "400-draw item bootstrap resampled WITHIN rung, one resample applied to every model per draw, every draw a full refit",
   "convergence": {
    "headline": {
-    "nll": 163827.05745535064,
-    "supnorm_grad": 0.00017204213138799496,
-    "mean_b": 5.3596973602593766e-17,
-    "nit": 2,
+    "nll": 163827.05745535056,
+    "supnorm_grad": 3.5636048318354874e-05,
+    "mean_b": 3.062684205862501e-17,
+    "nit": 1,
     "success": true
    },
    "floors_chance": {
-    "nll": 162835.04499218342,
-    "supnorm_grad": 8.211773413535628e-05,
-    "mean_b": -6.891039463190627e-17,
+    "nll": 162835.04499218508,
+    "supnorm_grad": 0.00016625792019742125,
+    "mean_b": -1.5313421029312504e-17,
     "nit": 1,
     "success": true
    },
    "floors_zero": {
-    "nll": 162421.44779377122,
-    "supnorm_grad": 7.591461342049133e-05,
-    "mean_b": 0.0,
-    "nit": 2,
+    "nll": 162421.4477937712,
+    "supnorm_grad": 0.0001123832711856787,
+    "mean_b": -1.5313421029312504e-17,
+    "nit": 1,
     "success": true
    },
    "zero_impute": {
-    "nll": 178229.92683332408,
-    "supnorm_grad": 0.0001491731838210164,
+    "nll": 178229.92683332422,
+    "supnorm_grad": 8.323857613401486e-05,
     "mean_b": 6.125368411725002e-17,
     "nit": 1,
     "success": true
    },
    "base_rungs_only": {
-    "nll": 124874.81619234497,
-    "supnorm_grad": 5.5033165830220554e-05,
+    "nll": 124874.81619234488,
+    "supnorm_grad": 6.981069818845498e-05,
     "mean_b": 5.921189464667501e-17,
-    "nit": 2,
+    "nit": 1,
     "success": true
    },
    "no_sf_t3": {
-    "nll": 163858.89155665264,
-    "supnorm_grad": 0.00012772137807326445,
+    "nll": 163858.8915566525,
+    "supnorm_grad": 7.138770088710444e-05,
     "mean_b": 5.551115123125783e-17,
-    "nit": 1,
+    "nit": 2,
     "success": true
    }
   }
