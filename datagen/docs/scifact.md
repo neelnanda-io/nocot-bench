@@ -682,13 +682,16 @@ Two operational notes for anyone running the network stages:
   paced at 0.35 s/request.
   **`t3` needs the WHOLE Wikidata pool, not a page of it.** Measured here at
   `--max-mineral-names 1500` (one SPARQL page, 1,201 names after the name
-  screens): **1 candidate cleared the COD structural screens in the first 674
-  names**, i.e. ~0.15%, an order of magnitude below the shipped 1.5% — because
-  `ORDER BY ?m` pages by entity id rather than by obscurity, so one page is not
-  a sample of the pool, and because a species with no Wikipedia article is
-  exactly the kind with fewer than four COD determinations. Budget the full
-  sweep (hours) or accept a tiny band. The `t3` code path itself is proven on a
-  five-record fixture built from real COD records — see
+  screens): **0 of the first 752 names cleared the COD structural screens** —
+  the sweep was stopped there, and the cache shows 752 COD queries and not one
+  `enwiki_status` call, which is the next step after a candidate passes. Two
+  compounding reasons: `ORDER BY ?m` pages by **entity id**, so one page is an
+  arbitrary slice of the pool rather than its obscure end; and a species with
+  no English Wikipedia article is exactly the kind with fewer than four COD
+  determinations under its exact name. The shipped band swept the full 3,791
+  names to land 40. Budget the whole sweep (hours), or raise
+  `--max-mineral-names` and expect a tiny band. The `t3` code path itself is
+  proven on a five-record fixture built from real COD records — see
   [Measured runs](#measured-runs).
 - **Nothing here needs an API key** except `--gen llm`. `--from-cache` replays
   the stored responses and is exact and free.
