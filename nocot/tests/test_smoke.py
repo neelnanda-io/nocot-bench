@@ -170,9 +170,12 @@ def test_knowledge_aggregate_is_complete_or_nothing():
     full = {d: 0.5 for d in P.KNOWLEDGE_DOMAINS}
     assert abs(P.knowledge_aggregate(full)["aggregate"] - 0.5) < 1e-12
     four = dict(full)
-    four.pop("scifact")
+    # drop the SCIENCE SLOT by its declared name. Hardcoding "scifact" here
+    # outlived the bank (A268) and the test then asserted the aggregate was
+    # missing a domain it no longer has.
+    four.pop(P.SCIENCE_SLOT)
     out = P.knowledge_aggregate(four)
-    assert out["aggregate"] is None and out["missing"] == ["scifact"]
+    assert out["aggregate"] is None and out["missing"] == [P.SCIENCE_SLOT]
 
 
 # ---------------------------------------------------------------- 2. grade
@@ -360,7 +363,12 @@ def test_data_matches_its_manifest():
     # v5.3: the export was keyed on the parent bank, so the 198 real
     # `knowledge1b_hard` items and the 37 `scifact_t3` items shipped nowhere.
     # 1,272 -> 1,507 distinct items over 1,547 sealed rung slots.
-    assert man["totals"]["n_knowledge_scored_items"] == 1507
+    # DERIVED from the manifest's own per-bank counts, not a typed literal: this
+    # assertion said 1507 while the shipped data said 1508, so a reproducer's
+    # first command reported a broken bundle (clean-room D1).
+    _want = sum(v["n_scored"] for v in man["knowledge"].values())
+    assert man["totals"]["n_knowledge_scored_items"] == _want, (
+        man["totals"]["n_knowledge_scored_items"], _want)
     assert len(man["ncri"]) == 20 and len(man["knowledge"]) == 7
     assert len(man["hard"]) == 7
     for kind in ("ncri", "knowledge"):

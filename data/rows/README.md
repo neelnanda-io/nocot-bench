@@ -1,6 +1,6 @@
 # data/rows/ — what the models actually said
 
-**41.76 MB, 56,995 rows, 280 models, 88 banks.** This is the audit surface: every number in `models.csv` is a count over rows like these, and these are the rows.
+**41.42 MB, 57,353 rows, 280 models, 88 banks.** This is the audit surface: every number in `models.csv` is a count over rows like these, and these are the rows.
 
 | file | rows | models | MB |
 |---|--:|--:|--:|
