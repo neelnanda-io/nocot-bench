@@ -315,12 +315,24 @@ def _sig(x):
     return 1.0 / (1.0 + math.exp(-x)) if x > -700 else 0.0
 
 
+def _softplus(x):
+    return max(x, 0.0) + math.log1p(math.exp(-abs(x)))
+
+
+def _sig_prime(x):
+    s = _sig(-abs(x))
+    return s * (1.0 - s)
+
+
 def theta_map(counts, prior_sd=PRIOR_SD, table=None):
     """counts: {rung_id: (k, n)}. Returns theta, or None if nothing landed.
 
-    The weighted score equation is strictly decreasing in theta (concave
-    log-likelihood + strictly concave Gaussian prior), so bisection on the
-    derivative is exact to machine tolerance and cannot find a local optimum.
+    A nonzero chance floor can make the posterior multimodal. Bound the first
+    and second derivatives on subintervals of the existing [-12, 12] domain:
+    monotone intervals need only an endpoint, concave intervals at most one
+    derivative root. Subdivide the remaining intervals to theta tolerance and
+    compare objective values, rather than assuming one root is the global MAP.
+    The objective, prior and sealed rung parameters are unchanged.
     """
     table = table or RUNGS
     rows = []
@@ -328,34 +340,79 @@ def theta_map(counts, prior_sd=PRIOR_SD, table=None):
         if rid not in table or n <= 0:
             continue
         b, c, w, _n_sealed, dom = table[rid]
-        rows.append((float(k), float(n), b, c, w, dom))
+        rows.append((float(k) * w, float(n) * w, b,
+                     math.log(c) if c else None, math.log1p(-c), dom))
     if not rows:
         return None, set()
 
+    variance = prior_sd ** 2
+
+    def objective(th):
+        value = -th ** 2 / (2.0 * variance)
+        for k, n, b, log_c, log_one_minus_c, _ in rows:
+            z = th - b
+            log_p = (-_softplus(-z) if log_c is None else
+                     log_c + _softplus(z - log_c) - _softplus(z))
+            value += k * log_p + (n - k) * (log_one_minus_c - _softplus(z))
+        return value
+
     def dL(th):
-        s = -th / prior_sd ** 2
-        for k, n, b, c, w, _ in rows:
-            sg = _sig(th - b)
-            p = min(max(c + (1 - c) * sg, 1e-12), 1 - 1e-12)
-            dp = (1 - c) * sg * (1 - sg)
-            s += w * (k / p - (n - k) / (1 - p)) * dp
+        s = -th / variance
+        for k, n, b, log_c, _log_one_minus_c, _ in rows:
+            z = th - b
+            s += (k if log_c is None else k * _sig(z - log_c)) - n * _sig(z)
         return s
 
-    lo, hi = -12.0, 12.0
-    if dL(lo) < 0:
-        th = lo
-    elif dL(hi) > 0:
-        th = hi
-    else:
-        for _ in range(300):
-            mid = 0.5 * (lo + hi)
-            if dL(mid) > 0:
-                lo = mid
+    def derivative_bounds(lo, hi):
+        lower, upper = -hi / variance, -lo / variance
+        curvature_upper = -1.0 / variance
+        for k, n, b, log_c, _log_one_minus_c, _ in rows:
+            zl, zh = lo - b, hi - b
+            # sigmoid is increasing; sigmoid' peaks at zero and has its
+            # minimum at one of the interval endpoints.
+            if log_c is None:
+                lower += k
+                upper += k
             else:
-                hi = mid
-            if hi - lo < 1e-12:
-                break
-        th = 0.5 * (lo + hi)
+                al, ah = zl - log_c, zh - log_c
+                lower += k * _sig(al)
+                upper += k * _sig(ah)
+                curvature_upper += k * _sig_prime(max(al, min(0.0, ah)))
+            lower -= n * _sig(zh)
+            upper -= n * _sig(zl)
+            curvature_upper -= n * min(_sig_prime(zl), _sig_prime(zh))
+        return lower, upper, curvature_upper
+
+    candidates = [-12.0, 12.0]
+    pending = [(-12.0, 12.0)]
+    tolerance = 1e-12
+    while pending:
+        lo, hi = pending.pop()
+        lower, upper, curvature_upper = derivative_bounds(lo, hi)
+        if lower >= 0.0:
+            candidates.append(hi)
+        elif upper <= 0.0:
+            candidates.append(lo)
+        elif curvature_upper <= 0.0:
+            if dL(lo) <= 0.0:
+                candidates.append(lo)
+                continue
+            if dL(hi) >= 0.0:
+                candidates.append(hi)
+                continue
+            while hi - lo > tolerance:
+                mid = 0.5 * (lo + hi)
+                if dL(mid) > 0.0:
+                    lo = mid
+                else:
+                    hi = mid
+            candidates.append(0.5 * (lo + hi))
+        elif hi - lo <= tolerance:
+            candidates.append(0.5 * (lo + hi))
+        else:
+            mid = 0.5 * (lo + hi)
+            pending.extend(((lo, mid), (mid, hi)))
+    th = max(candidates, key=objective)
     return th, {r[5] for r in rows}
 
 
