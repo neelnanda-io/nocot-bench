@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+* Fix `theta_map` selecting an inferior local maximum when nonzero chance
+  floors make the MAP objective non-concave. Search the existing `[-12, 12]`
+  interval using derivative and curvature bounds, and compare candidate
+  objective values. The prior, weights, sealed parameters, and display gauges
+  are unchanged. A regression using synthetic responses on four frozen rungs
+  reproduces the old theta of -1.453792 versus the better MAP of 3.582848;
+  the published NCRI and NCKI placement demos still reproduce.
+
 ## v5.4.1 — the two easy-band NCKI rungs had no witnesses; re-sealed, and eleven shipping defects fixed (2026-09-18)
 
 **Every published NCKI value changes.** An independent clean-room reproduction of
