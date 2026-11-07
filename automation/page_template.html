@@ -70,7 +70,7 @@ a{color:var(--accent)}
 <div class="wrap">
   <header>
     <h1>NCRI Candidates</h1>
-    <p class="lede">New OpenRouter models not yet in <span class="num">scores_all.csv</span>. Tick the ones to place, then open the request on GitHub and press <b>Submit new issue</b>: that starts a cloud run which probes, buys, grades and places each one, and adds the result to <span class="num">scores_all.csv</span> on main.</p>
+    <p class="lede">OpenRouter models not yet in <span class="num">scores_all.csv</span>; this week's additions are marked new, and earlier ones stay until placed. Tick the ones to place, then open the request on GitHub and press <b>Submit new issue</b>: that starts a cloud run which probes, buys, grades and places each one, and adds the result to <span class="num">scores_all.csv</span> on main.</p>
     <div class="meta" id="meta"></div>
   </header>
 
@@ -143,7 +143,7 @@ a{color:var(--accent)}
       const ns = notes(c).map(t => `<div class="note">${esc(t)}</div>`).join('');
       return `<tr class="cand${sel?' sel':''}" data-id="${esc(c.model_id)}">
         <td><input type="checkbox" id="pick-${esc(c.model_id).replace(/[^a-zA-Z0-9-]/g,'_')}" aria-label="Measure ${esc(c.name)}" ${sel?'checked':''}></td>
-        <td><div class="name">${esc(c.name)}</div><div class="mid">${esc(c.model_id)}</div></td>
+        <td><div class="name">${esc(c.name)}${c.new ? ' <span class="chip ok">new</span>' : ''}</div><div class="mid">${esc(c.model_id)}</div></td>
         <td><span class="chip p-${esc(c.priority||'none')}">${esc(c.priority||'unrated')}</span></td>
         <td class="num">${esc(c.created)}</td>
         <td class="num r">${c.in_per_m ?? '—'} · ${c.out_per_m ?? '—'}</td>

@@ -1,6 +1,6 @@
 {
- "scanned_utc": "2026-11-07T16:56:58+00:00",
- "window_start_utc": "2026-11-05T16:50:46+00:00",
+ "scanned_utc": "2026-11-07T16:59:14+00:00",
+ "window_start_utc": "2026-11-05T16:59:01+00:00",
  "openrouter_balance_usd": 528.31,
  "n_catalogue": 424,
  "skipped": {
@@ -10,5 +10,1167 @@
   "variant": 85,
   "not_text": 0
  },
- "candidates": []
+ "candidates": [
+  {
+   "model_id": "liquid/lfm-3-1.7b",
+   "name": "LiquidAI: LFM3-1.7B",
+   "lab": "liquid",
+   "created": "2026-11-06",
+   "context_length": 262144,
+   "in_per_m": 0.08,
+   "out_per_m": 0.2,
+   "est_buy_usd": 0.46,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Liquid",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "Liquid",
+     "tag": "liquid/fp8",
+     "quantization": "fp8",
+     "in_per_m": 0.08,
+     "out_per_m": 0.2,
+     "tools": true,
+     "status": -2
+    }
+   ],
+   "endpoint_error": null,
+   "description": "A compact 1.7B-parameter text model with a 256K-token context, post-trained for agents, tool calling, and structured outputs. It reasons before it answers. Prompts and outputs may be retained and used...",
+   "priority": "low",
+   "why": "Tiny model, likely near the floor of the ladder.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "google/gemini-omni-1.2-flash",
+   "name": "Google: Gemini Omni 1.2 Flash",
+   "lab": "google",
+   "created": "2026-11-05",
+   "context_length": 131072,
+   "in_per_m": 1.5,
+   "out_per_m": 9.0,
+   "est_buy_usd": 9.0,
+   "tools": false,
+   "reasoning_param": true,
+   "pin": "Google AI Studio",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "Google AI Studio",
+     "tag": "google-ai-studio",
+     "quantization": "unknown",
+     "in_per_m": 1.5,
+     "out_per_m": 9.0,
+     "tools": false,
+     "status": -2
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Gemini Omni 1.2 Flash is Google's native multimodal video generation and editing model, the successor to Gemini Omni 1.1 Flash. It generates clips up to 15 seconds long with native...",
+   "priority": "low",
+   "why": "Omni model without tool calling, so several banks cannot be bought.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "google/gemini-omni-1.1-flash",
+   "name": "Google: Gemini Omni 1.1 Flash",
+   "lab": "google",
+   "created": "2026-11-04",
+   "context_length": 131072,
+   "in_per_m": 1.5,
+   "out_per_m": 9.0,
+   "est_buy_usd": 9.0,
+   "tools": false,
+   "reasoning_param": true,
+   "pin": "Google AI Studio",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "Google AI Studio",
+     "tag": "google-ai-studio",
+     "quantization": "unknown",
+     "in_per_m": 1.5,
+     "out_per_m": 9.0,
+     "tools": false,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Gemini Omni 1.1 Flash is Google's native multimodal video generation and editing model, the generally available successor to Gemini Omni Flash Preview. It is suited for text-to-video, image-to-video, first and...",
+   "priority": "low",
+   "why": "Superseded by omni-1.2 the next day.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "stealth/crouton-alpha",
+   "name": "Crouton Alpha",
+   "lab": "stealth",
+   "created": "2026-11-03",
+   "context_length": 1048576,
+   "in_per_m": 0.0,
+   "out_per_m": 0.0,
+   "est_buy_usd": 0.0,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Stealth",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "Stealth",
+     "tag": "stealth",
+     "quantization": "unknown",
+     "in_per_m": 0.0,
+     "out_per_m": 0.0,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Crouton Alpha is a lightweight model built for scalable coding, agentic, and multimodal workflows. It's ideal for executing agentic sub-tasks, tool use, and document analysis in high-volume, repeated work. Developers...",
+   "priority": "medium",
+   "why": "Free stealth model, so placement costs nothing; identity unknown and it may vanish.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "z-ai/glm-5.3-flashx-legal",
+   "name": "Z.ai: GLM 5.3 FlashX Legal",
+   "lab": "z-ai",
+   "created": "2026-11-02",
+   "context_length": 1048576,
+   "in_per_m": 0.37,
+   "out_per_m": 1.25,
+   "est_buy_usd": 2.15,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Z.AI",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "Z.AI",
+     "tag": "z-ai/fp8",
+     "quantization": "fp8",
+     "in_per_m": 0.37,
+     "out_per_m": 1.25,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "GLM-5.3-FlashX-Legal (GLM-Legal) is Z.ai's legal-domain variant of GLM-5.3-FlashX, a native multimodal model that accepts text, image, and video input and produces text. It adds legal-domain mid-training and post-training with reinforcement...",
+   "priority": "low",
+   "why": "Legal-domain fine-tune of a flash model.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "particle-ai/particle-1",
+   "name": "Particle AI: Particle-1",
+   "lab": "particle-ai",
+   "created": "2026-10-28",
+   "context_length": 1048576,
+   "in_per_m": 0.05,
+   "out_per_m": 0.5,
+   "est_buy_usd": 0.32,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Particle AI",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "Particle AI",
+     "tag": "particle-ai/us",
+     "quantization": "unknown",
+     "in_per_m": 0.05,
+     "out_per_m": 0.5,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Particle-1 is a token-efficient agentic coding model from Particle AI, post-trained on DeepSeek V4.1 Flash. It is suited for software engineering work such as terminal workflows, codebase changes, and data...",
+   "priority": "low",
+   "why": "Unknown small lab.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "openai/gpt-6.1-terra-pro",
+   "name": "OpenAI: GPT-6.1 Terra Pro",
+   "lab": "openai",
+   "created": "2026-10-26",
+   "context_length": 1050000,
+   "in_per_m": 1.0,
+   "out_per_m": 5.0,
+   "est_buy_usd": 5.92,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "OpenAI",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "OpenAI",
+     "tag": "openai/flex",
+     "quantization": "unknown",
+     "in_per_m": 0.5,
+     "out_per_m": 2.5,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Azure",
+     "tag": "azure",
+     "quantization": "unknown",
+     "in_per_m": 1.0,
+     "out_per_m": 5.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "OpenAI",
+     "tag": "openai",
+     "quantization": "unknown",
+     "in_per_m": 1.0,
+     "out_per_m": 5.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Azure",
+     "tag": "azure/us",
+     "quantization": "unknown",
+     "in_per_m": 1.1,
+     "out_per_m": 5.5,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Azure",
+     "tag": "azure/eu",
+     "quantization": "unknown",
+     "in_per_m": 1.2,
+     "out_per_m": 6.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "OpenAI",
+     "tag": "openai/fast",
+     "quantization": "unknown",
+     "in_per_m": 2.0,
+     "out_per_m": 10.0,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "GPT-6.1 Terra Pro is the same underlying model as [GPT-6.1 Terra](https://openrouter.ai/openai/gpt-6.1-terra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
+   "priority": "low",
+   "why": "Pro variant; same forced-reasoning concern as sol-pro.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "minimax/minimax-m3.1-flash",
+   "name": "MiniMax: MiniMax M3.1 Flash",
+   "lab": "minimax",
+   "created": "2026-10-19",
+   "context_length": 1048576,
+   "in_per_m": 0.075,
+   "out_per_m": 0.3,
+   "est_buy_usd": 0.44,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Minimax",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "Minimax",
+     "tag": "minimax",
+     "quantization": "unknown",
+     "in_per_m": 0.075,
+     "out_per_m": 0.3,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "GMICloud",
+     "tag": "gmicloud/fp8",
+     "quantization": "fp8",
+     "in_per_m": 0.1125,
+     "out_per_m": 0.45,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "StreamLake",
+     "tag": "streamlake/fp8",
+     "quantization": "fp8",
+     "in_per_m": 0.135,
+     "out_per_m": 0.54,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Fireworks",
+     "tag": "fireworks",
+     "quantization": "unknown",
+     "in_per_m": 0.15,
+     "out_per_m": 0.6,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "InferenceNet",
+     "tag": "inference-net/fp4",
+     "quantization": "fp4",
+     "in_per_m": 0.15,
+     "out_per_m": 0.6,
+     "tools": true,
+     "status": -2
+    },
+    {
+     "provider": "DigitalOcean",
+     "tag": "digitalocean",
+     "quantization": "unknown",
+     "in_per_m": 0.15,
+     "out_per_m": 0.6,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Novita",
+     "tag": "novita/fp16",
+     "quantization": "fp16",
+     "in_per_m": 0.15,
+     "out_per_m": 0.6,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Nebius",
+     "tag": "nebius/fp4",
+     "quantization": "fp4",
+     "in_per_m": 0.15,
+     "out_per_m": 0.6,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "SambaNova",
+     "tag": "sambanova",
+     "quantization": "unknown",
+     "in_per_m": 0.15,
+     "out_per_m": 0.6,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "ModelRun",
+     "tag": "modelrun/fp4",
+     "quantization": "fp4",
+     "in_per_m": 0.15,
+     "out_per_m": 0.6,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Parasail",
+     "tag": "parasail/fp8",
+     "quantization": "fp8",
+     "in_per_m": 0.15,
+     "out_per_m": 0.6,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "InferenceNet",
+     "tag": "inference-net/fp4/us",
+     "quantization": "fp4",
+     "in_per_m": 0.15,
+     "out_per_m": 0.6,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Together",
+     "tag": "together",
+     "quantization": "unknown",
+     "in_per_m": 0.15,
+     "out_per_m": 0.6,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "MiniMax-M3.1-Flash is a multimodal model from MiniMax. Compared with M3, it delivers significant improvements across multiple benchmarks, particularly in complex agentic tasks, coding, and cybersecurity. It is built for complex,...",
+   "priority": "medium",
+   "why": "Cheap MiniMax release on the lab endpoint.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "elorian/glimpse",
+   "name": "Elorian: Glimpse",
+   "lab": "elorian",
+   "created": "2026-10-17",
+   "context_length": 262144,
+   "in_per_m": 0.6,
+   "out_per_m": 3.0,
+   "est_buy_usd": 3.56,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Together",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "Together",
+     "tag": "together",
+     "quantization": "unknown",
+     "in_per_m": 0.6,
+     "out_per_m": 3.0,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Glimpse is a multimodal visual reasoning model from Elorian, built for visual understanding and complex visual reasoning in the physical world. It reasons directly over images and video rather than...",
+   "priority": "low",
+   "why": "Unknown lab on Together.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "prism-ml/ternary-bonsai-2-9b",
+   "name": "PrismML: Ternary Bonsai 2 9B",
+   "lab": "prism-ml",
+   "created": "2026-10-16",
+   "context_length": 262144,
+   "in_per_m": 0.08,
+   "out_per_m": 0.13,
+   "est_buy_usd": 0.45,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": null,
+   "pin_reason": "no endpoint that is not 4-bit or on the avoid list",
+   "endpoints": [
+    {
+     "provider": "Darkbloom",
+     "tag": "darkbloom/int4",
+     "quantization": "int4",
+     "in_per_m": 0.08,
+     "out_per_m": 0.13,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Ternary Bonsai 2 9B is PrismML\u2019s compact, open-weight language model for conversational AI, reasoning, and tool use. Built on Qwen3.5, it uses ternary weights packed into 2 bits for efficient...",
+   "priority": "low",
+   "why": "Ternary-quantised 9B; no endpoint passed the host filter.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "moondream/moondream3-preview",
+   "name": "Moondream: Moondream 3 Preview",
+   "lab": "moondream",
+   "created": "2026-10-15",
+   "context_length": 32000,
+   "in_per_m": 0.3,
+   "out_per_m": 2.5,
+   "est_buy_usd": 1.85,
+   "tools": false,
+   "reasoning_param": true,
+   "pin": "PrimeIntellect",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "PrimeIntellect",
+     "tag": "primeintellect/fp8",
+     "quantization": "fp8",
+     "in_per_m": 0.3,
+     "out_per_m": 2.5,
+     "tools": false,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Moondream 3 Preview is a vision-language model from Moondream with 9B total parameters and 2B active (mixture-of-experts). It handles visual question answering, captioning, OCR, and visual reasoning over images, with...",
+   "priority": "low",
+   "why": "Vision model, no tool calling.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "moondream/moondream3.1-9b-a2b",
+   "name": "Moondream: Moondream 3.1",
+   "lab": "moondream",
+   "created": "2026-10-15",
+   "context_length": 32000,
+   "in_per_m": 0.3,
+   "out_per_m": 2.5,
+   "est_buy_usd": 1.85,
+   "tools": false,
+   "reasoning_param": true,
+   "pin": "PrimeIntellect",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "PrimeIntellect",
+     "tag": "primeintellect/fp8",
+     "quantization": "fp8",
+     "in_per_m": 0.3,
+     "out_per_m": 2.5,
+     "tools": false,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Moondream 3.1 is a vision-language model from Moondream, the successor to Moondream 3 Preview, with 9B total parameters and 2B active (mixture-of-experts). It handles visual question answering, captioning, OCR, and...",
+   "priority": "low",
+   "why": "Vision model, no tool calling.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "nvidia/nemotron-3.5-super-vl",
+   "name": "NVIDIA: Nemotron 3.5 Super VL",
+   "lab": "nvidia",
+   "created": "2026-10-15",
+   "context_length": 1048576,
+   "in_per_m": 0.15,
+   "out_per_m": 0.5,
+   "est_buy_usd": 0.87,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Darkbloom",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "Darkbloom",
+     "tag": "darkbloom/nvfp4",
+     "quantization": "nvfp4",
+     "in_per_m": 0.06,
+     "out_per_m": 0.35,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Crusoe",
+     "tag": "crusoe/bf16",
+     "quantization": "bf16",
+     "in_per_m": 0.1,
+     "out_per_m": 0.4,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "PrimeIntellect",
+     "tag": "primeintellect/nvfp4",
+     "quantization": "nvfp4",
+     "in_per_m": 0.15,
+     "out_per_m": 0.5,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Io Net",
+     "tag": "io-net/nvfp4",
+     "quantization": "nvfp4",
+     "in_per_m": 0.15,
+     "out_per_m": 0.5,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Together",
+     "tag": "together",
+     "quantization": "unknown",
+     "in_per_m": 0.15,
+     "out_per_m": 0.5,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "DeepInfra",
+     "tag": "deepinfra/fp4",
+     "quantization": "fp4",
+     "in_per_m": 0.15,
+     "out_per_m": 0.5,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "CoreWeave",
+     "tag": "coreweave/nvfp4",
+     "quantization": "nvfp4",
+     "in_per_m": 0.15,
+     "out_per_m": 0.5,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Venice",
+     "tag": "venice/fp4",
+     "quantization": "fp4",
+     "in_per_m": 0.2,
+     "out_per_m": 0.5,
+     "tools": true,
+     "status": -2
+    },
+    {
+     "provider": "BaseTen",
+     "tag": "baseten/fp4",
+     "quantization": "fp4",
+     "in_per_m": 0.2,
+     "out_per_m": 0.5,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Nebius",
+     "tag": "nebius/bf16",
+     "quantization": "bf16",
+     "in_per_m": 0.3,
+     "out_per_m": 0.9,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "NVIDIA Nemotron 3.5 Super VL is an open multimodal mixture-of-experts model from NVIDIA, with 12B active parameters out of 120B total. It takes text, images, documents, GUI screenshots, and video...",
+   "priority": "low",
+   "why": "Vision-language variant on an unvetted host.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "unbiased/pareto-26.10",
+   "name": "Pareto 26.10",
+   "lab": "unbiased",
+   "created": "2026-10-15",
+   "context_length": 1048576,
+   "in_per_m": 0.8,
+   "out_per_m": 3.2,
+   "est_buy_usd": 4.68,
+   "tools": true,
+   "reasoning_param": false,
+   "pin": "Unbiased",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "Unbiased",
+     "tag": "unbiased",
+     "quantization": "unknown",
+     "in_per_m": 0.8,
+     "out_per_m": 3.2,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks.",
+   "priority": "low",
+   "why": "Looks like a routing product rather than one model.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "unbiased/pareto-26.9",
+   "name": "Pareto 26.9",
+   "lab": "unbiased",
+   "created": "2026-10-13",
+   "context_length": 262144,
+   "in_per_m": 2.5,
+   "out_per_m": 7.5,
+   "est_buy_usd": 14.44,
+   "tools": true,
+   "reasoning_param": false,
+   "pin": "Unbiased",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "Unbiased",
+     "tag": "unbiased",
+     "quantization": "unknown",
+     "in_per_m": 2.5,
+     "out_per_m": 7.5,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks.",
+   "priority": "low",
+   "why": "Looks like a routing product rather than one model.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "liquid/lfm-2.5-24b-a2b",
+   "name": "LiquidAI: LFM2.5-24B-A2B",
+   "lab": "liquid",
+   "created": "2026-10-13",
+   "context_length": 128000,
+   "in_per_m": 0.05,
+   "out_per_m": 0.7,
+   "est_buy_usd": 0.33,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Liquid",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "Liquid",
+     "tag": "liquid/fp8",
+     "quantization": "fp8",
+     "in_per_m": 0.05,
+     "out_per_m": 0.7,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "LFM2.5-24B-A2B is a mixture-of-experts reasoning model from Liquid AI with 24B total and 2.45B active parameters. It always reasons before answering and is built for agents that call tools. Liquid...",
+   "priority": "low",
+   "why": "Small active-parameter MoE, likely near the floor.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "scaledown/summarize",
+   "name": "ScaleDown: Summarize",
+   "lab": "scaledown",
+   "created": "2026-10-13",
+   "context_length": 1000000,
+   "in_per_m": 0.04,
+   "out_per_m": 0.0,
+   "est_buy_usd": 0.22,
+   "tools": false,
+   "reasoning_param": false,
+   "pin": "ScaleDown",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "ScaleDown",
+     "tag": "scaledown",
+     "quantization": "unknown",
+     "in_per_m": 0.04,
+     "out_per_m": 0.0,
+     "tools": false,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Summarize is an abstractive summarization model from ScaleDown. It condenses long text and documents into a fluent, faithful rewrite rather than lifting sentences from the source, and is suited for...",
+   "priority": "low",
+   "why": "Single-purpose summariser, not a general model.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "scaledown/extract",
+   "name": "ScaleDown: Extract",
+   "lab": "scaledown",
+   "created": "2026-10-13",
+   "context_length": 1000000,
+   "in_per_m": 0.04,
+   "out_per_m": 0.0,
+   "est_buy_usd": 0.22,
+   "tools": false,
+   "reasoning_param": false,
+   "pin": "ScaleDown",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "ScaleDown",
+     "tag": "scaledown",
+     "quantization": "unknown",
+     "in_per_m": 0.04,
+     "out_per_m": 0.0,
+     "tools": false,
+     "status": -2
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Extract is a description-driven entity extraction model from ScaleDown. Instead of a fixed set of entity types, callers describe the fields they want in plain English through `provider.options.scaledown.entities`, and the...",
+   "priority": "low",
+   "why": "Single-purpose extractor, not a general model.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "stepfun/step-5-preview",
+   "name": "StepFun: Step 5 Preview",
+   "lab": "stepfun",
+   "created": "2026-10-08",
+   "context_length": 1048576,
+   "in_per_m": 1.0,
+   "out_per_m": 2.7,
+   "est_buy_usd": 5.75,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "GMICloud",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "GMICloud",
+     "tag": "gmicloud/fp8",
+     "quantization": "fp8",
+     "in_per_m": 1.0,
+     "out_per_m": 2.7,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Featherless",
+     "tag": "featherless/fp4",
+     "quantization": "fp4",
+     "in_per_m": 1.0,
+     "out_per_m": 2.7,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "StepFun",
+     "tag": "stepfun/fp8",
+     "quantization": "fp8",
+     "in_per_m": 1.0,
+     "out_per_m": 2.7,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Step 5 Preview is StepFun's flagship model for agentic work, built on a sparse Mixture-of-Experts architecture (27B active / 600B total parameters). It performs strongly in software engineering and professional...",
+   "priority": "medium",
+   "why": "New StepFun generation, but only on an unvetted host.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "google/gemini-nano-banana-2.1",
+   "name": "Google: Nano Banana 2.1",
+   "lab": "google",
+   "created": "2026-10-06",
+   "context_length": 65536,
+   "in_per_m": 1.5,
+   "out_per_m": 7.5,
+   "est_buy_usd": 8.89,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Google AI Studio",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "Google AI Studio",
+     "tag": "google-ai-studio",
+     "quantization": "unknown",
+     "in_per_m": 1.5,
+     "out_per_m": 7.5,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Nano Banana 2.1 (Gemini Nano Banana 2.1) is Google's image generation and editing model on the Flash tier, succeeding Nano Banana 2 and Nano Banana Pro. It improves product recontextualization,...",
+   "priority": "low",
+   "why": "Image-generation model.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "mistralai/mistral-large-4-0",
+   "name": "Mistral: Mistral Large 4",
+   "lab": "mistralai",
+   "created": "2026-10-06",
+   "context_length": 1048576,
+   "in_per_m": 0.7,
+   "out_per_m": 2.1,
+   "est_buy_usd": 4.04,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Mistral",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "Mistral",
+     "tag": "mistral/zdr",
+     "quantization": "unknown",
+     "in_per_m": 0.7,
+     "out_per_m": 2.1,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Mistral",
+     "tag": "mistral/eu",
+     "quantization": "unknown",
+     "in_per_m": 0.77,
+     "out_per_m": 2.31,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Mistral Large 4 is a frontier multimodal (text and image input) model from Mistral AI built for reasoning, coding, and agentic workloads. It offers a 1M-token context window with up...",
+   "priority": "high",
+   "why": "New Mistral flagship on the lab endpoint with tool calling; about $4 to buy.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "inclusionai/ling-3.1-flash",
+   "name": "inclusionAI: Ling 3.1 Flash",
+   "lab": "inclusionai",
+   "created": "2026-10-02",
+   "context_length": 1000000,
+   "in_per_m": 0.045,
+   "out_per_m": 0.135,
+   "est_buy_usd": 0.26,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Novita",
+   "pin_reason": "known-good host",
+   "endpoints": [
+    {
+     "provider": "Novita",
+     "tag": "novita",
+     "quantization": "unknown",
+     "in_per_m": 0.045,
+     "out_per_m": 0.135,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "DeepInfra",
+     "tag": "deepinfra/fp4",
+     "quantization": "fp4",
+     "in_per_m": 0.075,
+     "out_per_m": 0.225,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Ling 3.1 Flash is a hybrid reasoning mixture-of-experts model from inclusionAI, with 25B active parameters out of 560B total.",
+   "priority": "low",
+   "why": "Small flash model on Novita.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "openai/gpt-6.1-sol-pro",
+   "name": "OpenAI: GPT-6.1 Sol Pro",
+   "lab": "openai",
+   "created": "2026-09-29",
+   "context_length": 1050000,
+   "in_per_m": 2.0,
+   "out_per_m": 10.0,
+   "est_buy_usd": 11.85,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "OpenAI",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "OpenAI",
+     "tag": "openai/flex",
+     "quantization": "unknown",
+     "in_per_m": 1.0,
+     "out_per_m": 5.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Azure",
+     "tag": "azure",
+     "quantization": "unknown",
+     "in_per_m": 2.0,
+     "out_per_m": 10.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "OpenAI",
+     "tag": "openai",
+     "quantization": "unknown",
+     "in_per_m": 2.0,
+     "out_per_m": 10.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Azure",
+     "tag": "azure/eu",
+     "quantization": "unknown",
+     "in_per_m": 2.2,
+     "out_per_m": 11.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Azure",
+     "tag": "azure/us",
+     "quantization": "unknown",
+     "in_per_m": 2.2,
+     "out_per_m": 11.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "OpenAI",
+     "tag": "openai/fast",
+     "quantization": "unknown",
+     "in_per_m": 4.0,
+     "out_per_m": 20.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "OpenAI",
+     "tag": "openai/ultrafast",
+     "quantization": "unknown",
+     "in_per_m": 12.0,
+     "out_per_m": 60.0,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "GPT-6.1 Sol Pro is the same underlying model as [GPT-6.1 Sol](https://openrouter.ai/openai/gpt-6.1-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
+   "priority": "low",
+   "why": "Pro variants usually force long reasoning, so a clean no-CoT probe is unlikely.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "perceptron/perceptron-mk1.5",
+   "name": "Perceptron: Perceptron Mk1.5",
+   "lab": "perceptron",
+   "created": "2026-09-25",
+   "context_length": 36864,
+   "in_per_m": 0.15,
+   "out_per_m": 1.5,
+   "est_buy_usd": 0.94,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Perceptron",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "Perceptron",
+     "tag": "perceptron",
+     "quantization": "unknown",
+     "in_per_m": 0.15,
+     "out_per_m": 1.5,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Perceptron Mk1.5 is Perceptron's embodied reasoning model for physical agents. It accepts text, image, video, and audio input, and answers with text plus optional structured annotations: points, boxes, polygons, tracks,...",
+   "priority": "low",
+   "why": "Perception-focused model.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "fireworks/ember-1",
+   "name": "Fireworks: Ember-1",
+   "lab": "fireworks",
+   "created": "2026-09-24",
+   "context_length": 1048576,
+   "in_per_m": 3.0,
+   "out_per_m": 15.0,
+   "est_buy_usd": 17.77,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Fireworks",
+   "pin_reason": "known-good host",
+   "endpoints": [
+    {
+     "provider": "Fireworks",
+     "tag": "fireworks",
+     "quantization": "unknown",
+     "in_per_m": 3.0,
+     "out_per_m": 15.0,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Ember-1 is a specialized reasoning model from Fireworks Research, built on [Kimi K3](https://openrouter.ai/moonshotai/kimi-k3). It is designed to make every token go further: it produces shorter reasoning traces, using roughly 40%...",
+   "priority": "medium",
+   "why": "Fireworks first-party model; pricey for an unknown quantity.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "z-ai/glm-5.3-prime",
+   "name": "Z.ai: GLM 5.3 Prime",
+   "lab": "z-ai",
+   "created": "2026-09-23",
+   "context_length": 1000000,
+   "in_per_m": 2.8,
+   "out_per_m": 8.8,
+   "est_buy_usd": 16.2,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Alibaba",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "Alibaba",
+     "tag": "alibaba",
+     "quantization": "unknown",
+     "in_per_m": 2.8,
+     "out_per_m": 8.8,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "GLM-5.3-Prime is the high-speed variant of Z.ai's GLM-5.3, inheriting its full capabilities while delivering 1.5\u20132\u00d7 the output throughput through inference acceleration. It supports text input and output with a 1M-token...",
+   "priority": "high",
+   "why": "New GLM flagship; note the suggested pin is Alibaba, not Z.AI, so check the endpoint list.",
+   "first_seen": "2026-11-07",
+   "new": true
+  },
+  {
+   "model_id": "qwen/qwen3.8-max-prime",
+   "name": "Qwen: Qwen3.8 Max Prime",
+   "lab": "qwen",
+   "created": "2026-09-23",
+   "context_length": 1000000,
+   "in_per_m": 4.0,
+   "out_per_m": 12.0,
+   "est_buy_usd": 23.1,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Alibaba",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "Alibaba",
+     "tag": "alibaba",
+     "quantization": "unknown",
+     "in_per_m": 4.0,
+     "out_per_m": 12.0,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Qwen3.8 Max Prime is a higher-throughput variant of Qwen3.8 Max from Alibaba's Qwen team, served as a separate SKU at a higher price point. It accepts text, image, and video...",
+   "priority": "medium",
+   "why": "Qwen flagship, but the estimated buy is above the per-request cap.",
+   "first_seen": "2026-11-07",
+   "new": true
+  }
+ ]
 }

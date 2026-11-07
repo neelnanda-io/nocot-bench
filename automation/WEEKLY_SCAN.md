@@ -8,7 +8,9 @@ and email Neel. You spend no OpenRouter money beyond catalogue reads. Settings l
 1. **Scan.** `python -m automation.scan_openrouter`. It writes `automation/candidates.json` and
    updates `automation/seen.json`. If `OPENROUTER_API_KEY` is missing or openrouter.ai is blocked,
    stop and email Neel that the cloud environment needs Full network access and the key.
-2. **Rate every candidate.** Edit `automation/candidates.json`: set `priority` to `high`,
+2. **Rate the new candidates.** The scan carries earlier unmeasured candidates forward with their
+   ratings (`"new": false`); leave those alone. For each `"new": true` entry, edit
+   `automation/candidates.json`: set `priority` to `high`,
    `medium` or `low` and `why` to one factual sentence. Base it only on the entry's name, lab,
    description, price, tool support and endpoints, plus `models.csv` (which of the lab's models are
    already on the ladder). Never invent benchmark results or claims.
@@ -28,12 +30,9 @@ and email Neel. You spend no OpenRouter money beyond catalogue reads. Settings l
    say so in the email.
 5. **Commit to main.** `git add automation/candidates.json automation/seen.json` (nothing else),
    commit `scan: <date>, <n> candidates`, `git pull --rebase origin main`, push to `main`.
-6. **Email Neel** with Resend (`RESEND_API_KEY`, from `SENDER_EMAIL`, to the address in the env var named by `notify_email_env`):
+6. **Email Neel** with `python -m automation.send_email --subject "..." --body-file email.txt`
+   (Resend, from `SENDER_EMAIL` to the address in the env var named by `notify_email_env`):
    subject `NCRI candidates: <n> new, <k> high priority`; body lists the high-priority models
    with their one-line reason and estimated buy cost, the OpenRouter balance (flag it if under
    $100), open requests, and the page link. Plain text, under 300 words.
 
-```bash
-curl -s https://api.resend.com/emails -H "Authorization: Bearer $RESEND_API_KEY" \
-  -H 'Content-Type: application/json' -d @email.json   # {"from","to","subject","text"}
-```

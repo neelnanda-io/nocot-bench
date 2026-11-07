@@ -91,5 +91,5 @@ coverage, NCRI display with the item interval, would-be rank labelled as a place
 could not be bought, and spend. Then close it:
 `gh api -X PATCH repos/neelnanda-io/nocot-bench/issues/<n> -f state=closed`.
 
-Email Neel the same report with Resend (see `automation/WEEKLY_SCAN.md` step 6), subject
+Email Neel the same report with `python -m automation.send_email --subject ... --body-file ...`, subject
 `NCRI placed: <ids>`. Do not publish the artifact page from this run; the weekly scan refreshes it.

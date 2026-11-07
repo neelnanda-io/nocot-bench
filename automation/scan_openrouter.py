@@ -52,6 +52,8 @@ LAB_HOST = {"openai": "openai", "anthropic": "anthropic", "google": "google",
             "meta-llama": "meta", "minimax": "minimax", "amazon": "amazon",
             "cohere": "cohere", "inception": "inception", "baidu": "baidu",
             "bytedance-seed": "seed", "stepfun-ai": "stepfun"}
+CARRY_DAYS = 120  # an unmeasured candidate stays on the page this long
+
 SKIP_PREFIXES = ("openrouter/", "~")
 SKIP_SUFFIXES = (":free", ":extended", ":beta", ":thinking", ":online", ":nitro", ":floor", ":exacto")
 
@@ -216,6 +218,32 @@ def main():
             "why": None,
         })
 
+    for c in cands:
+        c["first_seen"] = now.date().isoformat()
+        c["new"] = True
+    # Carry forward earlier candidates that are still unmeasured, with their
+    # ratings, so a model stays on the page until it is placed or ages out.
+    prev_path = AUTO / "candidates.json"
+    prev = json.loads(prev_path.read_text())["candidates"] if prev_path.exists() else []
+    fresh_ids = {c["model_id"] for c in cands}
+    live_ids = {m["id"] for m in models}
+    cutoff = (now - timedelta(days=CARRY_DAYS)).date().isoformat()
+    carried = dropped = 0
+    for c in prev:
+        mid = c["model_id"]
+        if mid in fresh_ids or mid in known or mid not in live_ids:
+            dropped += 1
+            continue
+        if (c.get("first_seen") or c.get("created") or "") < cutoff:
+            dropped += 1
+            continue
+        c.setdefault("first_seen", c.get("created"))
+        c["new"] = c["first_seen"] == now.date().isoformat()  # same-day rerun keeps "new"
+        cands.append(c)
+        carried += 1
+    print(f"carried forward {carried} earlier candidates, dropped {dropped} "
+          f"(placed, gone from OpenRouter, or older than {CARRY_DAYS} days)")
+
     cands.sort(key=lambda c: c["created"], reverse=True)
     out = {
         "scanned_utc": now.isoformat(timespec="seconds"),
@@ -225,16 +253,19 @@ def main():
         "skipped": skipped,
         "candidates": cands,
     }
-    print(f"{len(cands)} new candidates since {since.date()} "
+    n_new = sum(1 for c in cands if c.get("new"))
+    print(f"{n_new} new candidates since {since.date()} "
           f"(catalogue {len(models)}, skipped {skipped}); balance ${balance}")
     for c in cands:
+        if not c.get("new"):
+            continue
         print(f"  {c['created']}  {c['model_id']:<45} ${c['in_per_m']}/{c['out_per_m']} per M  "
               f"est ${c['est_buy_usd']}  pin={c['pin']}  tools={c['tools']}")
     if args.dry_run:
         return
     (AUTO / "candidates.json").write_text(json.dumps(out, indent=1) + "\n")
     for c in cands:
-        state["seen"][c["model_id"]] = c["created"]
+        state["seen"].setdefault(c["model_id"], c["created"])
     state["last_scan_utc"] = out["scanned_utc"]
     state_path.write_text(json.dumps(state, indent=1, sort_keys=True) + "\n")
 
