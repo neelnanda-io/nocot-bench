@@ -22,7 +22,7 @@ def main():
     reqs_path = AUTO / "open_requests.json"
     reqs = json.loads(reqs_path.read_text()) if reqs_path.exists() else []
     data = {**cands, "placements": placements, "open_requests": reqs,
-            "floor_usd": CONFIG["floor_usd"], "run_cap_usd": CONFIG["run_cap_usd"],
+            "floor_usd": CONFIG["floor_usd"],
             "repo": CONFIG["repo"]}
     for c in data["candidates"]:
         c.pop("endpoints", None)      # keep the page small

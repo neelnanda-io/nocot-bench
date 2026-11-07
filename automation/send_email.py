@@ -34,7 +34,10 @@ def main():
                "text": Path(a.body_file).read_text()}
     req = urllib.request.Request("https://api.resend.com/emails", data=json.dumps(payload).encode(),
                                  headers={"Authorization": f"Bearer {key}",
-                                          "Content-Type": "application/json"})
+                                          "Content-Type": "application/json",
+                                          # Resend's Cloudflare front rejects Python-urllib's
+                                          # default User-Agent with 403 (error 1010).
+                                          "User-Agent": "nocot-bench-automation/1.0"})
     with urllib.request.urlopen(req, timeout=30) as r:
         print("sent:", json.load(r).get("id"))
 

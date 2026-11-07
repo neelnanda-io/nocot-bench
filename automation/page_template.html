@@ -108,7 +108,7 @@ a{color:var(--accent)}
 <script>
 (function(){
   const D = JSON.parse(document.getElementById('nocot-data').textContent);
-  const FLOOR = D.floor_usd, RUN_CAP = D.run_cap_usd, REPO = D.repo;
+  const FLOOR = D.floor_usd, REPO = D.repo;
   const $ = id => document.getElementById(id);
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const money = v => v == null ? '—' : '$' + Number(v).toFixed(2);
@@ -123,14 +123,13 @@ a{color:var(--accent)}
     `<span>Scanned <b>${esc((D.scanned_utc||'').replace('T',' ').slice(0,16))} UTC</b></span>` +
     `<span>Models released since <b>${esc((D.window_start_utc||'').slice(0,10))}</b></span>` +
     `<span>OpenRouter balance <span class="chip ${balCls}">${money(bal)}</span></span>` +
-    `<span>Runs stop below <b>${money(FLOOR)}</b>, cap <b>${money(RUN_CAP)}</b> per request</span>`;
+    `<span>Runs stop below <b>${money(FLOOR)}</b> balance</span>`;
 
   function notes(c){
     const n = [];
     if (!c.tools) n.push('No tool calling: the tool-force banks cannot be bought, so coverage may miss the 16/19 gate.');
     if (!c.pin) n.push('No usable endpoint (all 4-bit or on the avoid list).');
     else if (/cheapest/.test(c.pin_reason||'')) n.push('Pin is an unvetted host: benchmark it before trusting the number.');
-    if (c.est_buy_usd != null && c.est_buy_usd > RUN_CAP) n.push(`Estimated buy exceeds the ${money(RUN_CAP)} cap; the run will skip it unless the cap is raised.`);
     return n;
   }
 
@@ -163,12 +162,12 @@ a{color:var(--accent)}
       go.setAttribute('aria-disabled','true'); go.href = '#';
       return;
     }
-    const over = est > RUN_CAP || after < FLOOR;
+    const over = after < FLOOR;
     $('sum').innerHTML = `${ids.length} ticked · est <b>${money(est)}</b> · balance after <span class="${after < FLOOR ? 'lim' : ''}">${money(after)}</span>` +
-      (over ? ` · <span class="lim">over the cap or floor: the run will stop early</span>` : '');
+      (over ? ` · <span class="lim">below the balance floor: the run will stop early</span>` : '');
     const title = 'measure: ' + ids.join(', ');
     const body = ['Requested from the NCRI Candidates page.', '', '<!-- nocot-measure v1 -->', 'models:',
-      ...ids.map(id => '- ' + id), '', 'Default rules: probe first, buy only on a clean plain-arm probe, stop below $' + FLOOR + ' balance, cap $' + RUN_CAP + ' per request.'].join('\n');
+      ...ids.map(id => '- ' + id), '', 'Default rules: probe first; if the plain arm is refused or dirty, search the standard recipes and buy with the shallowest arm clean on two draws; stop below $' + FLOOR + ' balance; no per-request cap.'].join('\n');
     go.href = `https://github.com/${REPO}/issues/new?` + new URLSearchParams({title, body, labels: 'measure'}).toString();
     go.removeAttribute('aria-disabled');
   }

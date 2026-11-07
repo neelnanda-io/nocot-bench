@@ -16,7 +16,7 @@ and email Neel. You spend no OpenRouter money beyond catalogue reads. Settings l
    already on the ladder). Never invent benchmark results or claims.
    - **high**: a new release from a frontier or leading open-weight lab, or a new checkpoint of a
      family already on the ladder, with tool calling and a usable pin.
-   - **medium**: plausible general model with a catch (estimated buy above `run_cap_usd`, unvetted
+   - **medium**: plausible general model with a catch (unvetted
      host, no usable pin, unknown lab with a serious-looking release).
    - **low**: single-purpose, vision or image models, routers, tiny models, fine-tunes of something
      already listed, `-pro` variants that force long reasoning.

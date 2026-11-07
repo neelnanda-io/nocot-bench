@@ -1,7 +1,6 @@
 {
   "repo": "neelnanda-io/nocot-bench",
   "floor_usd": 20,
-  "run_cap_usd": 15,
   "artifact_url": "https://claude.ai/artifact/1qnhBXjaq6Gj5yuX9XgeKx",
   "rows_dataset": "NeelNanda/nocot-placement-rows",
   "notify_email_env": "REPLY_TO_EMAIL"
