@@ -38,3 +38,11 @@ data/rows/*.jsonl
 data/rows/prompts.json
 data/rows/ROWS_INDEX.json
 data/CANARY.txt
+
+# automation/ (the weekly scan and measuring runs): scratch and per-run output.
+# Placements are published only as rows of scores_all.csv.
+probe*/
+runs_rejected/
+placement_*.json
+automation/page.html
+automation/open_requests.json

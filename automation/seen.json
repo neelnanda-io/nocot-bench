@@ -1,0 +1,32 @@
+{
+ "last_scan_utc": "2026-11-07T16:50:46+00:00",
+ "seen": {
+  "elorian/glimpse": "2026-10-17",
+  "fireworks/ember-1": "2026-09-24",
+  "google/gemini-nano-banana-2.1": "2026-10-06",
+  "google/gemini-omni-1.1-flash": "2026-11-04",
+  "google/gemini-omni-1.2-flash": "2026-11-05",
+  "inclusionai/ling-3.1-flash": "2026-10-02",
+  "liquid/lfm-2.5-24b-a2b": "2026-10-13",
+  "liquid/lfm-3-1.7b": "2026-11-06",
+  "minimax/minimax-m3.1-flash": "2026-10-19",
+  "mistralai/mistral-large-4-0": "2026-10-06",
+  "moondream/moondream3-preview": "2026-10-15",
+  "moondream/moondream3.1-9b-a2b": "2026-10-15",
+  "nvidia/nemotron-3.5-super-vl": "2026-10-15",
+  "openai/gpt-6.1-sol-pro": "2026-09-29",
+  "openai/gpt-6.1-terra-pro": "2026-10-26",
+  "particle-ai/particle-1": "2026-10-28",
+  "perceptron/perceptron-mk1.5": "2026-09-25",
+  "prism-ml/ternary-bonsai-2-9b": "2026-10-16",
+  "qwen/qwen3.8-max-prime": "2026-09-23",
+  "scaledown/extract": "2026-10-13",
+  "scaledown/summarize": "2026-10-13",
+  "stealth/crouton-alpha": "2026-11-03",
+  "stepfun/step-5-preview": "2026-10-08",
+  "unbiased/pareto-26.10": "2026-10-15",
+  "unbiased/pareto-26.9": "2026-10-13",
+  "z-ai/glm-5.3-flashx-legal": "2026-11-02",
+  "z-ai/glm-5.3-prime": "2026-09-23"
+ }
+}
