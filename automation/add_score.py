@@ -29,11 +29,15 @@ def read(path=SCORES):
 
 
 def write(fields, rows, path=SCORES):
+    # Keep the file's own line endings: scores_all.csv is CRLF, and rewriting it as LF turns a
+    # one-row insert into a whole-file diff.
+    eol = "\r\n" if b"\r\n" in Path(path).read_bytes() else "\n"
     buf = io.StringIO()
-    w = csv.DictWriter(buf, fieldnames=fields, lineterminator="\n")
+    w = csv.DictWriter(buf, fieldnames=fields, lineterminator=eol)
     w.writeheader()
     w.writerows(rows)
-    Path(path).write_text(buf.getvalue())
+    with open(path, "w", newline="") as f:
+        f.write(buf.getvalue())
 
 
 def insert_ranked(rows, new, idx):
