@@ -67,7 +67,13 @@ Read `AGENTS.md` sections 1 to 4 and `ELICITATION.md` first; they are the author
    nothing (exit code 3), do not buy: report each host's best arm with its draw-1 witness counts as
    `no clean recipe`. A 403 such as "not available in your region" means the endpoint cannot be
    reached from this VM; report it as unreachable, not as dirty.
-5. **Gates.** Report coverage `n/19` against the 16 gate, excluded cells (the 0.20 rule), and
+5. **Drop excluded cells and re-place.** `run_all.sh` places on every cell, and `nocot.place`
+   does NOT apply the 0.20 cell rule, so its first `coverage` line overstates coverage whenever a
+   cell is over 0.20. Read the `A101` column of the grade table in the buy log; if any cell says
+   `EXCLUDED`, re-run `python -m nocot.place` with `--rows` listing only the graded files of the
+   `ok` cells (keep the `--knowledge` globs, `--bootstrap 400`) and `--out placement_<slug>.json`.
+   That placement, with its coverage verdict, is the one you report and publish.
+6. **Gates.** Report coverage `n/19` against the 16 gate, excluded cells (the 0.20 rule), and
    what could not be bought. A model under the gate is UNRANKED; publish it as such.
 
 ## 3. Publish
