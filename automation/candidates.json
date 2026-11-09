@@ -1,13 +1,13 @@
 {
- "scanned_utc": "2026-11-07T16:59:14+00:00",
- "window_start_utc": "2026-11-05T16:59:01+00:00",
- "openrouter_balance_usd": 528.31,
- "n_catalogue": 424,
+ "scanned_utc": "2026-11-09T09:09:28+00:00",
+ "window_start_utc": "2026-11-05T16:59:14+00:00",
+ "openrouter_balance_usd": 503.72,
+ "n_catalogue": 425,
  "skipped": {
-  "known": 183,
-  "seen": 27,
-  "old": 129,
-  "variant": 85,
+  "known": 182,
+  "seen": 26,
+  "old": 128,
+  "variant": 89,
   "not_text": 0
  },
  "candidates": [
@@ -40,7 +40,7 @@
    "priority": "low",
    "why": "Tiny model, likely near the floor of the ladder.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "google/gemini-omni-1.2-flash",
@@ -71,7 +71,7 @@
    "priority": "low",
    "why": "Omni model without tool calling, so several banks cannot be bought.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "google/gemini-omni-1.1-flash",
@@ -102,7 +102,7 @@
    "priority": "low",
    "why": "Superseded by omni-1.2 the next day.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "stealth/crouton-alpha",
@@ -133,7 +133,7 @@
    "priority": "medium",
    "why": "Free stealth model, so placement costs nothing; identity unknown and it may vanish.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "z-ai/glm-5.3-flashx-legal",
@@ -164,7 +164,7 @@
    "priority": "low",
    "why": "Legal-domain fine-tune of a flash model.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "particle-ai/particle-1",
@@ -195,7 +195,7 @@
    "priority": "low",
    "why": "Unknown small lab.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "openai/gpt-6.1-terra-pro",
@@ -271,146 +271,7 @@
    "priority": "low",
    "why": "Pro variant; same forced-reasoning concern as sol-pro.",
    "first_seen": "2026-11-07",
-   "new": true
-  },
-  {
-   "model_id": "minimax/minimax-m3.1-flash",
-   "name": "MiniMax: MiniMax M3.1 Flash",
-   "lab": "minimax",
-   "created": "2026-10-19",
-   "context_length": 1048576,
-   "in_per_m": 0.075,
-   "out_per_m": 0.3,
-   "est_buy_usd": 0.44,
-   "tools": true,
-   "reasoning_param": true,
-   "pin": "Minimax",
-   "pin_reason": "lab's own endpoint",
-   "endpoints": [
-    {
-     "provider": "Minimax",
-     "tag": "minimax",
-     "quantization": "unknown",
-     "in_per_m": 0.075,
-     "out_per_m": 0.3,
-     "tools": true,
-     "status": 0
-    },
-    {
-     "provider": "GMICloud",
-     "tag": "gmicloud/fp8",
-     "quantization": "fp8",
-     "in_per_m": 0.1125,
-     "out_per_m": 0.45,
-     "tools": true,
-     "status": 0
-    },
-    {
-     "provider": "StreamLake",
-     "tag": "streamlake/fp8",
-     "quantization": "fp8",
-     "in_per_m": 0.135,
-     "out_per_m": 0.54,
-     "tools": true,
-     "status": 0
-    },
-    {
-     "provider": "Fireworks",
-     "tag": "fireworks",
-     "quantization": "unknown",
-     "in_per_m": 0.15,
-     "out_per_m": 0.6,
-     "tools": true,
-     "status": 0
-    },
-    {
-     "provider": "InferenceNet",
-     "tag": "inference-net/fp4",
-     "quantization": "fp4",
-     "in_per_m": 0.15,
-     "out_per_m": 0.6,
-     "tools": true,
-     "status": -2
-    },
-    {
-     "provider": "DigitalOcean",
-     "tag": "digitalocean",
-     "quantization": "unknown",
-     "in_per_m": 0.15,
-     "out_per_m": 0.6,
-     "tools": true,
-     "status": 0
-    },
-    {
-     "provider": "Novita",
-     "tag": "novita/fp16",
-     "quantization": "fp16",
-     "in_per_m": 0.15,
-     "out_per_m": 0.6,
-     "tools": true,
-     "status": 0
-    },
-    {
-     "provider": "Nebius",
-     "tag": "nebius/fp4",
-     "quantization": "fp4",
-     "in_per_m": 0.15,
-     "out_per_m": 0.6,
-     "tools": true,
-     "status": 0
-    },
-    {
-     "provider": "SambaNova",
-     "tag": "sambanova",
-     "quantization": "unknown",
-     "in_per_m": 0.15,
-     "out_per_m": 0.6,
-     "tools": true,
-     "status": 0
-    },
-    {
-     "provider": "ModelRun",
-     "tag": "modelrun/fp4",
-     "quantization": "fp4",
-     "in_per_m": 0.15,
-     "out_per_m": 0.6,
-     "tools": true,
-     "status": 0
-    },
-    {
-     "provider": "Parasail",
-     "tag": "parasail/fp8",
-     "quantization": "fp8",
-     "in_per_m": 0.15,
-     "out_per_m": 0.6,
-     "tools": true,
-     "status": 0
-    },
-    {
-     "provider": "InferenceNet",
-     "tag": "inference-net/fp4/us",
-     "quantization": "fp4",
-     "in_per_m": 0.15,
-     "out_per_m": 0.6,
-     "tools": true,
-     "status": 0
-    },
-    {
-     "provider": "Together",
-     "tag": "together",
-     "quantization": "unknown",
-     "in_per_m": 0.15,
-     "out_per_m": 0.6,
-     "tools": true,
-     "status": 0
-    }
-   ],
-   "endpoint_error": null,
-   "description": "MiniMax-M3.1-Flash is a multimodal model from MiniMax. Compared with M3, it delivers significant improvements across multiple benchmarks, particularly in complex agentic tasks, coding, and cybersecurity. It is built for complex,...",
-   "priority": "medium",
-   "why": "Cheap MiniMax release on the lab endpoint.",
-   "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "elorian/glimpse",
@@ -441,7 +302,7 @@
    "priority": "low",
    "why": "Unknown lab on Together.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "prism-ml/ternary-bonsai-2-9b",
@@ -472,7 +333,7 @@
    "priority": "low",
    "why": "Ternary-quantised 9B; no endpoint passed the host filter.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "moondream/moondream3-preview",
@@ -503,7 +364,7 @@
    "priority": "low",
    "why": "Vision model, no tool calling.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "moondream/moondream3.1-9b-a2b",
@@ -534,7 +395,7 @@
    "priority": "low",
    "why": "Vision model, no tool calling.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "nvidia/nemotron-3.5-super-vl",
@@ -646,7 +507,7 @@
    "priority": "low",
    "why": "Vision-language variant on an unvetted host.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "unbiased/pareto-26.10",
@@ -677,7 +538,7 @@
    "priority": "low",
    "why": "Looks like a routing product rather than one model.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "unbiased/pareto-26.9",
@@ -708,7 +569,7 @@
    "priority": "low",
    "why": "Looks like a routing product rather than one model.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "liquid/lfm-2.5-24b-a2b",
@@ -739,7 +600,7 @@
    "priority": "low",
    "why": "Small active-parameter MoE, likely near the floor.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "scaledown/summarize",
@@ -770,7 +631,7 @@
    "priority": "low",
    "why": "Single-purpose summariser, not a general model.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "scaledown/extract",
@@ -801,7 +662,7 @@
    "priority": "low",
    "why": "Single-purpose extractor, not a general model.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "stepfun/step-5-preview",
@@ -850,7 +711,7 @@
    "priority": "medium",
    "why": "New StepFun generation, but only on an unvetted host.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "google/gemini-nano-banana-2.1",
@@ -881,7 +742,7 @@
    "priority": "low",
    "why": "Image-generation model.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "mistralai/mistral-large-4-0",
@@ -921,7 +782,7 @@
    "priority": "high",
    "why": "New Mistral flagship on the lab endpoint with tool calling; about $4 to buy.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "inclusionai/ling-3.1-flash",
@@ -961,7 +822,7 @@
    "priority": "low",
    "why": "Small flash model on Novita.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "openai/gpt-6.1-sol-pro",
@@ -1046,7 +907,7 @@
    "priority": "low",
    "why": "Pro variants usually force long reasoning, so a clean no-CoT probe is unlikely.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "perceptron/perceptron-mk1.5",
@@ -1077,7 +938,7 @@
    "priority": "low",
    "why": "Perception-focused model.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "fireworks/ember-1",
@@ -1108,7 +969,7 @@
    "priority": "medium",
    "why": "Fireworks first-party model; pricey for an unknown quantity.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "z-ai/glm-5.3-prime",
@@ -1139,7 +1000,7 @@
    "priority": "high",
    "why": "New GLM flagship; note the suggested pin is Alibaba, not Z.AI, so check the endpoint list.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   },
   {
    "model_id": "qwen/qwen3.8-max-prime",
@@ -1170,7 +1031,7 @@
    "priority": "medium",
    "why": "Qwen flagship, but the estimated buy is above the per-request cap.",
    "first_seen": "2026-11-07",
-   "new": true
+   "new": false
   }
  ]
 }
