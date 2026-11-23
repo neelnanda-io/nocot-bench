@@ -1,16 +1,885 @@
 {
- "scanned_utc": "2026-11-09T09:09:28+00:00",
- "window_start_utc": "2026-11-05T16:59:14+00:00",
- "openrouter_balance_usd": 503.72,
- "n_catalogue": 425,
+ "scanned_utc": "2026-11-23T09:09:20+00:00",
+ "window_start_utc": "2026-11-07T09:09:28+00:00",
+ "openrouter_balance_usd": 821.43,
+ "n_catalogue": 442,
  "skipped": {
-  "known": 182,
-  "seen": 26,
-  "old": 128,
-  "variant": 89,
+  "known": 178,
+  "seen": 25,
+  "old": 123,
+  "variant": 99,
   "not_text": 0
  },
  "candidates": [
+  {
+   "model_id": "thinkingmachines/inkling-2-mini",
+   "name": "Thinking Machines: Inkling 2 Mini",
+   "lab": "thinkingmachines",
+   "created": "2026-11-21",
+   "context_length": 1048576,
+   "in_per_m": 0.075,
+   "out_per_m": 0.3,
+   "est_buy_usd": 0.44,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Io Net",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "PrimeIntellect",
+     "tag": "primeintellect/flex",
+     "quantization": "fp4",
+     "in_per_m": 0.0375,
+     "out_per_m": 0.15,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "PrimeIntellect",
+     "tag": "primeintellect/fp4",
+     "quantization": "fp4",
+     "in_per_m": 0.075,
+     "out_per_m": 0.3,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "PrimeIntellect",
+     "tag": "primeintellect/prime",
+     "quantization": "fp4",
+     "in_per_m": 0.12,
+     "out_per_m": 0.5,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Io Net",
+     "tag": "io-net/nvfp4",
+     "quantization": "nvfp4",
+     "in_per_m": 0.12,
+     "out_per_m": 0.5,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Inkling 2 Mini is an open-weight multimodal looped transformer from Thinking Machines Lab, with 3.4B active parameters out of 26.4B total (MoE). Its middle layers run three times with shared...",
+   "priority": "medium",
+   "why": "New Inkling-family checkpoint (thinkingmachines_inkling* already on the ladder) with tool calling, but every endpoint is fp4/nvfp4 quantized -- no full-precision pin to benchmark against.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "radixark/daisyrose-27b",
+   "name": "RadixArk: DaisyRose 27B",
+   "lab": "radixark",
+   "created": "2026-11-21",
+   "context_length": 262144,
+   "in_per_m": 0.15,
+   "out_per_m": 1.875,
+   "est_buy_usd": 0.97,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "DeepInfra",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "DeepInfra",
+     "tag": "deepinfra/bf16",
+     "quantization": "bf16",
+     "in_per_m": 0.15,
+     "out_per_m": 1.875,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "DaisyRose 27B is an open-weight multimodal reasoning model from RadixArk, trained from [Qwen3.8 27B](https://openrouter.ai/qwen/qwen3.8-27b) using reinforcement learning only on long-horizon agent tasks, with no supervised fine-tuning or distillation. It is...",
+   "priority": "low",
+   "why": "RL-only fine-tune of qwen3.8-27b (already on the ladder as local_qwen3.8-27b) from an unlisted lab; not a new base model.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "mistralai/pixtral-large-2502",
+   "name": "Mistral: Pixtral Large 2502",
+   "lab": "mistralai",
+   "created": "2026-11-20",
+   "context_length": 128000,
+   "in_per_m": 2.0,
+   "out_per_m": 6.0,
+   "est_buy_usd": 11.55,
+   "tools": false,
+   "reasoning_param": false,
+   "pin": "Amazon Bedrock",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "Amazon Bedrock",
+     "tag": "amazon-bedrock",
+     "quantization": "unknown",
+     "in_per_m": 2.0,
+     "out_per_m": 6.0,
+     "tools": false,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Pixtral Large 2502 is the February 2025 version of Mistral AI's large multimodal model, following [Pixtral Large 2411](https://openrouter.ai/mistralai/pixtral-large-2411). It accepts text and image input, including documents, charts, and natural images,...",
+   "priority": "low",
+   "why": "Vision/multimodal model (Pixtral line) with no tool calling, outside the NCRI text-reasoning scope.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "google/gemini-4-neon",
+   "name": "Google: Gemini 4 Neon",
+   "lab": "google",
+   "created": "2026-11-18",
+   "context_length": 1048576,
+   "in_per_m": 3.0,
+   "out_per_m": 15.0,
+   "est_buy_usd": 17.77,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Google AI Studio",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "Google AI Studio",
+     "tag": "google-ai-studio/flex",
+     "quantization": "unknown",
+     "in_per_m": 1.5,
+     "out_per_m": 7.5,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Google AI Studio",
+     "tag": "google-ai-studio",
+     "quantization": "unknown",
+     "in_per_m": 3.0,
+     "out_per_m": 15.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Google",
+     "tag": "google-vertex/global",
+     "quantization": "unknown",
+     "in_per_m": 3.0,
+     "out_per_m": 15.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Google",
+     "tag": "google-vertex/global/priority",
+     "quantization": "unknown",
+     "in_per_m": 5.4,
+     "out_per_m": 27.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Google AI Studio",
+     "tag": "google-ai-studio/priority",
+     "quantization": "unknown",
+     "in_per_m": 5.4,
+     "out_per_m": 27.0,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Gemini 4 Neon is a fast, mid-priced model in the Gemini 4 family from Google, built for coding and agentic work. It is suited for repository and terminal coding, web...",
+   "priority": "high",
+   "why": "New Gemini 4 tier (coding/agentic-focused) from Google, family already on the ladder across many Gemini generations; tools and a lab-run Google AI Studio pin.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "openai/gpt-6.2-astra-pro",
+   "name": "OpenAI: GPT-6.2 Astra Pro",
+   "lab": "openai",
+   "created": "2026-11-17",
+   "context_length": 1050000,
+   "in_per_m": 8.0,
+   "out_per_m": 40.0,
+   "est_buy_usd": 47.4,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "OpenAI",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "OpenAI",
+     "tag": "openai",
+     "quantization": "unknown",
+     "in_per_m": 8.0,
+     "out_per_m": 40.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Azure",
+     "tag": "azure",
+     "quantization": "unknown",
+     "in_per_m": 8.0,
+     "out_per_m": 40.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "OpenAI",
+     "tag": "openai/fast",
+     "quantization": "unknown",
+     "in_per_m": 16.0,
+     "out_per_m": 80.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "OpenAI",
+     "tag": "openai/ultrafast",
+     "quantization": "unknown",
+     "in_per_m": 24.0,
+     "out_per_m": 120.0,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "GPT-6.2 Astra Pro is the same underlying model as [GPT-6.2 Astra](https://openrouter.ai/openai/gpt-6.2-astra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
+   "priority": "low",
+   "why": "Same weights as gpt-6.2-astra but forced into OpenAI's 'pro' reasoning mode, which spends far more compute per the model card -- a reasoning-forced variant, not a new checkpoint.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "openai/gpt-6.2-astra",
+   "name": "OpenAI: GPT-6.2 Astra",
+   "lab": "openai",
+   "created": "2026-11-17",
+   "context_length": 1050000,
+   "in_per_m": 8.0,
+   "out_per_m": 40.0,
+   "est_buy_usd": 47.4,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "OpenAI",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "OpenAI",
+     "tag": "openai",
+     "quantization": "unknown",
+     "in_per_m": 8.0,
+     "out_per_m": 40.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Azure",
+     "tag": "azure",
+     "quantization": "unknown",
+     "in_per_m": 8.0,
+     "out_per_m": 40.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Amazon Bedrock",
+     "tag": "amazon-bedrock/global",
+     "quantization": "unknown",
+     "in_per_m": 8.0,
+     "out_per_m": 40.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "OpenAI",
+     "tag": "openai/fast",
+     "quantization": "unknown",
+     "in_per_m": 16.0,
+     "out_per_m": 80.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "OpenAI",
+     "tag": "openai/ultrafast",
+     "quantization": "unknown",
+     "in_per_m": 24.0,
+     "out_per_m": 120.0,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "GPT-6.2 Astra is the flagship model in the GPT-6.2 series from OpenAI, built for the hardest projects. It is suited for real-world engineering, professional work and scientific research, with stronger...",
+   "priority": "high",
+   "why": "OpenAI's new GPT-6.2 flagship, family already on the ladder (openai_gpt-6-astra and the gpt-5.x line); tool calling and a lab-run OpenAI pin.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "openai/gpt-6.2-sol-pro",
+   "name": "OpenAI: GPT-6.2 Sol Pro",
+   "lab": "openai",
+   "created": "2026-11-17",
+   "context_length": 1050000,
+   "in_per_m": 2.0,
+   "out_per_m": 10.0,
+   "est_buy_usd": 11.85,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "OpenAI",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "OpenAI",
+     "tag": "openai",
+     "quantization": "unknown",
+     "in_per_m": 2.0,
+     "out_per_m": 10.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Azure",
+     "tag": "azure",
+     "quantization": "unknown",
+     "in_per_m": 2.0,
+     "out_per_m": 10.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "OpenAI",
+     "tag": "openai/fast",
+     "quantization": "unknown",
+     "in_per_m": 4.0,
+     "out_per_m": 20.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "OpenAI",
+     "tag": "openai/ultrafast",
+     "quantization": "unknown",
+     "in_per_m": 6.0,
+     "out_per_m": 30.0,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "GPT-6.2 Sol Pro is the same underlying model as [GPT-6.2 Sol](https://openrouter.ai/openai/gpt-6.2-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more...",
+   "priority": "low",
+   "why": "Same weights as gpt-6.2-sol but forced into OpenAI's 'pro' reasoning mode (far higher compute per the model card) -- a reasoning-forced variant, not a new checkpoint.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "openai/gpt-6.2-sol",
+   "name": "OpenAI: GPT-6.2 Sol",
+   "lab": "openai",
+   "created": "2026-11-17",
+   "context_length": 1050000,
+   "in_per_m": 2.0,
+   "out_per_m": 10.0,
+   "est_buy_usd": 11.85,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "OpenAI",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "OpenAI",
+     "tag": "openai",
+     "quantization": "unknown",
+     "in_per_m": 2.0,
+     "out_per_m": 10.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Azure",
+     "tag": "azure",
+     "quantization": "unknown",
+     "in_per_m": 2.0,
+     "out_per_m": 10.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Amazon Bedrock",
+     "tag": "amazon-bedrock/global",
+     "quantization": "unknown",
+     "in_per_m": 2.0,
+     "out_per_m": 10.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "OpenAI",
+     "tag": "openai/fast",
+     "quantization": "unknown",
+     "in_per_m": 4.0,
+     "out_per_m": 20.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "OpenAI",
+     "tag": "openai/ultrafast",
+     "quantization": "unknown",
+     "in_per_m": 6.0,
+     "out_per_m": 30.0,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "GPT-6.2 Sol is an upgrade to GPT-6.1 Sol from OpenAI, positioned below the flagship GPT-6.2 Astra in the GPT-6.2 series. It is an efficient, versatile model for everyday work, suited...",
+   "priority": "high",
+   "why": "Upgrade to GPT-6.1 Sol from OpenAI, a frontier lab, with tool calling and a lab-run OpenAI pin.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "tencent/hy4-flash",
+   "name": "Tencent: Hy4 flash",
+   "lab": "tencent",
+   "created": "2026-11-16",
+   "context_length": 1048576,
+   "in_per_m": 0.035,
+   "out_per_m": 0.1405,
+   "est_buy_usd": 0.2,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Tencent",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "Tencent",
+     "tag": "tencent/fp8",
+     "quantization": "fp8",
+     "in_per_m": 0.035,
+     "out_per_m": 0.1405,
+     "tools": true,
+     "status": -5
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Hy4 flash is a cost-efficient variant of [Hy4](https://openrouter.ai/tencent/hy4) from Tencent, served with roughly a quarter of the flagship's parameter count for lower latency and cost. It targets code assistance, agent...",
+   "priority": "medium",
+   "why": "New Hy4 family checkpoint (tencent_hy3/hy3-preview/hy4-preview already on the ladder), but its only listed endpoint (Tencent fp8) carries an OpenRouter status of -5 -- no currently healthy pin.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "qwen/qwen4-max",
+   "name": "Qwen: Qwen4 Max",
+   "lab": "qwen",
+   "created": "2026-11-16",
+   "context_length": 1000000,
+   "in_per_m": 1.425,
+   "out_per_m": 4.275,
+   "est_buy_usd": 8.23,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Alibaba",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "Alibaba",
+     "tag": "alibaba",
+     "quantization": "unknown",
+     "in_per_m": 1.425,
+     "out_per_m": 4.275,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Qwen4 Max is the flagship model in Alibaba's Qwen4 series. It accepts text, image, and video input and returns text, with a 1M-token context window and reasoning enabled by default....",
+   "priority": "high",
+   "why": "Alibaba's new flagship Qwen4 generation, succeeding the extensive qwen3.x line already on the ladder; tool calling and a lab-run Alibaba pin.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "google/gemini-4-hydrogen",
+   "name": "Google: Gemini 4 Hydrogen",
+   "lab": "google",
+   "created": "2026-11-12",
+   "context_length": 1048576,
+   "in_per_m": 1.5,
+   "out_per_m": 7.5,
+   "est_buy_usd": 8.89,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Google AI Studio",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "Google AI Studio",
+     "tag": "google-ai-studio/flex",
+     "quantization": "unknown",
+     "in_per_m": 0.75,
+     "out_per_m": 3.75,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Google",
+     "tag": "google-vertex/global",
+     "quantization": "unknown",
+     "in_per_m": 1.5,
+     "out_per_m": 7.5,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Google AI Studio",
+     "tag": "google-ai-studio",
+     "quantization": "unknown",
+     "in_per_m": 1.5,
+     "out_per_m": 7.5,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Google",
+     "tag": "google-vertex/global/priority",
+     "quantization": "unknown",
+     "in_per_m": 2.7,
+     "out_per_m": 13.5,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Google AI Studio",
+     "tag": "google-ai-studio/priority",
+     "quantization": "unknown",
+     "in_per_m": 2.7,
+     "out_per_m": 13.5,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Gemini 4 Hydrogen is the high-efficiency workhorse model of the Gemini 4 family from Google, built for high-throughput agentic workflows, coding and multi-model routing at lower cost and latency than...",
+   "priority": "high",
+   "why": "Gemini 4 family workhorse tier from Google, family already heavily represented on the ladder; tools and a lab-run Google AI Studio pin.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "baidu/ernie-light-dt-1.0-intl",
+   "name": "Baidu: ERNIE-Light-DT-1.0",
+   "lab": "baidu",
+   "created": "2026-11-10",
+   "context_length": 1024000,
+   "in_per_m": 1.13,
+   "out_per_m": 3.94,
+   "est_buy_usd": 6.57,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Baidu",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "Baidu",
+     "tag": "baidu",
+     "quantization": "unknown",
+     "in_per_m": 1.13,
+     "out_per_m": 3.94,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "ERNIE-Light-DT-1.0 is based on open-source GLM models and includes research findings from Baidu Search's Lightning large model. It features Baidu Sparse Attention (BSA), a unique sparse attention mechanism developed by...",
+   "priority": "medium",
+   "why": "Baidu has only one prior ladder entry (ernie-4.5-vl), and this checkpoint's description (built on third-party GLM weights plus a proprietary sparse-attention layer) is an unusual lineage worth vetting before treating as a priority buy.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "google/gemini-4-carbon",
+   "name": "Google: Gemini 4 Carbon",
+   "lab": "google",
+   "created": "2026-11-10",
+   "context_length": 1048576,
+   "in_per_m": 2.0,
+   "out_per_m": 10.0,
+   "est_buy_usd": 11.85,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Google AI Studio",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "Google AI Studio",
+     "tag": "google-ai-studio/flex",
+     "quantization": "unknown",
+     "in_per_m": 1.0,
+     "out_per_m": 5.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Google",
+     "tag": "google-vertex/global",
+     "quantization": "unknown",
+     "in_per_m": 2.0,
+     "out_per_m": 10.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Google AI Studio",
+     "tag": "google-ai-studio",
+     "quantization": "unknown",
+     "in_per_m": 2.0,
+     "out_per_m": 10.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Google",
+     "tag": "google-vertex/global/priority",
+     "quantization": "unknown",
+     "in_per_m": 3.6,
+     "out_per_m": 18.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Google AI Studio",
+     "tag": "google-ai-studio/priority",
+     "quantization": "unknown",
+     "in_per_m": 3.6,
+     "out_per_m": 18.0,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Gemini 4 Carbon is a frontier Gemini 4 model from Google for coding, agentic and complex reasoning work. It takes text, image, audio, video and file input, supports long decode...",
+   "priority": "high",
+   "why": "Gemini 4 flagship-tier model from Google for coding/agentic/complex reasoning, family already on the ladder; tools and a lab-run Google AI Studio pin.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "nex-agi/nex-n2.6",
+   "name": "Nex AGI: Nex-N2.6",
+   "lab": "nex-agi",
+   "created": "2026-11-10",
+   "context_length": 262144,
+   "in_per_m": 0.12,
+   "out_per_m": 0.4,
+   "est_buy_usd": 0.7,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Nex AGI",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "Nex AGI",
+     "tag": "nex-agi/fp8",
+     "quantization": "fp8",
+     "in_per_m": 0.12,
+     "out_per_m": 0.4,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Nex-N2.6 is an agentic model from Nex AGI, built on [GLM-5.3-Flash](https://huggingface.co/zai-org/GLM-5.3-Flash-BF16) with about 321B parameters. It is suited for computer use, coding, and long-horizon tasks that involve tools. Compared with...",
+   "priority": "low",
+   "why": "Agentic fine-tune built on GLM-5.3-Flash (already on the ladder as z-ai_glm-5.3-flash) from an unlisted lab; not a new base model.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "thinkingmachines/inkling-2-small",
+   "name": "Thinking Machines: Inkling 2 Small",
+   "lab": "thinkingmachines",
+   "created": "2026-11-09",
+   "context_length": 1048576,
+   "in_per_m": 0.3,
+   "out_per_m": 1.0,
+   "est_buy_usd": 1.74,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Modal",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "PrimeIntellect",
+     "tag": "primeintellect/fp4",
+     "quantization": "fp4",
+     "in_per_m": 0.15,
+     "out_per_m": 0.5,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "DeepInfra",
+     "tag": "deepinfra/fp4",
+     "quantization": "fp4",
+     "in_per_m": 0.285,
+     "out_per_m": 0.95,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Modal",
+     "tag": "modal/nvfp4",
+     "quantization": "nvfp4",
+     "in_per_m": 0.3,
+     "out_per_m": 1.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Nebius",
+     "tag": "nebius/fp4",
+     "quantization": "fp4",
+     "in_per_m": 0.3,
+     "out_per_m": 1.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Together",
+     "tag": "together",
+     "quantization": "unknown",
+     "in_per_m": 0.3,
+     "out_per_m": 1.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Cloudflare",
+     "tag": "cloudflare",
+     "quantization": "unknown",
+     "in_per_m": 0.3,
+     "out_per_m": 1.0,
+     "tools": true,
+     "status": -5
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Inkling 2 Small is an open-weight multimodal mixture-of-experts reasoning model from Thinking Machines Lab, with 17B active parameters out of 594B total. It is the first model in the second...",
+   "priority": "high",
+   "why": "New-generation checkpoint from Thinking Machines (family already on the ladder), with tool calling and a Together endpoint that is not flagged 4-bit, unlike the Mini variant.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "anthropic/claude-fable-5.2",
+   "name": "Anthropic: Claude Fable 5.2",
+   "lab": "anthropic",
+   "created": "2026-11-09",
+   "context_length": 1000000,
+   "in_per_m": 8.0,
+   "out_per_m": 40.0,
+   "est_buy_usd": 47.4,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Anthropic",
+   "pin_reason": "lab's own endpoint",
+   "endpoints": [
+    {
+     "provider": "Google",
+     "tag": "google-vertex/global",
+     "quantization": "unknown",
+     "in_per_m": 8.0,
+     "out_per_m": 40.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Azure",
+     "tag": "azure",
+     "quantization": "unknown",
+     "in_per_m": 8.0,
+     "out_per_m": 40.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Anthropic",
+     "tag": "anthropic",
+     "quantization": "unknown",
+     "in_per_m": 8.0,
+     "out_per_m": 40.0,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Anthropic",
+     "tag": "anthropic/fast",
+     "quantization": "unknown",
+     "in_per_m": 16.0,
+     "out_per_m": 80.0,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Claude Fable 5.2 is Anthropic's most capable model for the most demanding technical work, with gains over Fable 5.1 in coding, reasoning, and vision. In prerelease testing it completed otherwise-infeasible...",
+   "priority": "high",
+   "why": "New Claude Fable checkpoint from Anthropic, family already on the ladder (claude-fable-5, claude-fable-5.1); tool calling and a lab-run Anthropic pin.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
+  {
+   "model_id": "meta/muse-ember",
+   "name": "Meta: Muse Ember",
+   "lab": "meta",
+   "created": "2026-11-09",
+   "context_length": 1048576,
+   "in_per_m": 0.1,
+   "out_per_m": 0.5,
+   "est_buy_usd": 0.59,
+   "tools": true,
+   "reasoning_param": true,
+   "pin": "Google",
+   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
+   "endpoints": [
+    {
+     "provider": "Google",
+     "tag": "google-vertex/global",
+     "quantization": "unknown",
+     "in_per_m": 0.1,
+     "out_per_m": 0.5,
+     "tools": true,
+     "status": 0
+    },
+    {
+     "provider": "Meta",
+     "tag": "meta",
+     "quantization": "unknown",
+     "in_per_m": 0.1,
+     "out_per_m": 0.5,
+     "tools": true,
+     "status": 0
+    }
+   ],
+   "endpoint_error": null,
+   "description": "Muse Ember is the smallest and most efficient model from Meta that\u2019s designed for complex reasoning execution and the work agents repeat all day: tool calls, coding agent subtasks, routing,...",
+   "priority": "medium",
+   "why": "New checkpoint in Meta's on-ladder Muse family (muse-glimmer-30b, muse-spark 1.1-1.3), but billed as the 'smallest and most efficient' Muse model, so likely near the floor rather than informative at the frontier.",
+   "first_seen": "2026-11-23",
+   "new": true
+  },
   {
    "model_id": "liquid/lfm-3-1.7b",
    "name": "LiquidAI: LFM3-1.7B",
@@ -101,37 +970,6 @@
    "description": "Gemini Omni 1.1 Flash is Google's native multimodal video generation and editing model, the generally available successor to Gemini Omni Flash Preview. It is suited for text-to-video, image-to-video, first and...",
    "priority": "low",
    "why": "Superseded by omni-1.2 the next day.",
-   "first_seen": "2026-11-07",
-   "new": false
-  },
-  {
-   "model_id": "stealth/crouton-alpha",
-   "name": "Crouton Alpha",
-   "lab": "stealth",
-   "created": "2026-11-03",
-   "context_length": 1048576,
-   "in_per_m": 0.0,
-   "out_per_m": 0.0,
-   "est_buy_usd": 0.0,
-   "tools": true,
-   "reasoning_param": true,
-   "pin": "Stealth",
-   "pin_reason": "cheapest non-4-bit endpoint; benchmark the host first",
-   "endpoints": [
-    {
-     "provider": "Stealth",
-     "tag": "stealth",
-     "quantization": "unknown",
-     "in_per_m": 0.0,
-     "out_per_m": 0.0,
-     "tools": true,
-     "status": 0
-    }
-   ],
-   "endpoint_error": null,
-   "description": "Crouton Alpha is a lightweight model built for scalable coding, agentic, and multimodal workflows. It's ideal for executing agentic sub-tasks, tool use, and document analysis in high-volume, repeated work. Developers...",
-   "priority": "medium",
-   "why": "Free stealth model, so placement costs nothing; identity unknown and it may vanish.",
    "first_seen": "2026-11-07",
    "new": false
   },
